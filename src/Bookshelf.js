@@ -7,10 +7,10 @@ class Bookshelf extends React.Component {
     return (
   
     <div className="bookshelf">
-    <h2 className="bookshelf-title">{this.props.bookshelfName}</h2>
+    <h2 className="bookshelf-title">{this.props.name}</h2>
     <div className="bookshelf-books">
       <ol className="books-grid">
-      <Book />
+      {this.props.books.map(book => <Book book={book} key={book.id} onChange={this.props.onChange}/>)}
      
       </ol>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Header (p) {
+function Header () {
     return  (<div className="list-books">
     <div className="list-books-title">
       <h1>MyReads</h1>

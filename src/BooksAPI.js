@@ -22,14 +22,14 @@ export const getAll = () =>
     .then(res => res.json())
     .then(data => data.books)
 
-export const update = (book, shelf) =>
+export const save = (book) =>
   fetch(`${api}/books/${book.id}`, {
     method: 'PUT',
     headers: {
       ...headers,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ shelf })
+    body: JSON.stringify({ shelf : book.shelf })
   }).then(res => res.json())
 
 export const search = (query) =>
