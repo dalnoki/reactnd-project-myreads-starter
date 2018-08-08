@@ -39,6 +39,7 @@ class BooksApp extends React.Component {
     BooksAPI.getAll().then((books) => this.setState({books, loading: false}))
     }
 
+
   render() {
     return this.state.loading ? (<h3>Loading....</h3>) : (
       <BrowserRouter>
@@ -49,7 +50,7 @@ class BooksApp extends React.Component {
             <Header />
                   {bookshelves.map( shelf => (
                     <Bookshelf name={shelf.name} key={shelf.id} books={this.state.books.filter( book => book.shelf === shelf.id )}
-                      onChange={this.onChange}/>
+                      onChange={this.onChange} />
                   ))}
 
             <div className="open-search">

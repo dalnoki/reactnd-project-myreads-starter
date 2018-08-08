@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { bookshelves } from './Bookshelves'
+
 
 
 
@@ -12,13 +13,15 @@ handleChange = (e) => {
   this.props.onChange(newBook)
     
 }
+
     
 render () {
 return(
 
 <div className="book">
 <div className="book-top">
-  <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
+  <div className="book-cover"></div>
+  <img src={this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : "none" } style={{ width: 128, height: 192 }} alt={this.props.book.imageLinks ? this.props.book.title : "placeholder"} />
   <div className="book-shelf-changer">
   <select onChange={this.handleChange} value={this.props.book.shelf}>
   <option value="moveToShelf">Move to Shelf</option>
