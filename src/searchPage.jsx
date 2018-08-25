@@ -19,11 +19,16 @@ class SearchPage extends React.Component {
         );
       } else {
         books = [];
+        this.setState({ books : [] });
       }
       this.setState({ books });
     })
-    .catch((err) => {console.log("error")});
+    .catch((err) => {
+      console.log("error")
+      this.setState({ books : [] });
+    });
   };
+
 
 
   
