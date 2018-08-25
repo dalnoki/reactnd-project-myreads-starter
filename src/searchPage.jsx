@@ -8,19 +8,25 @@ class SearchPage extends React.Component {
       books : []
   }
 
-  handleSearch = (e) => {
-    BooksAPI.search(e.target.value).then(books => {
+  handleSearch = (e, err) => {
+    BooksAPI.search(e.target.value)
+    
+    .then(books => {
+      console.log(books.items)
       if (books) {
-      books = books.map((book) => (this.props.books.find( (b) => b.id === book.id) || book ))
+        books = books.map(
+          book => this.props.books.find(b => b.id === book.id) || book
+        );
       } else {
-        books = []
+        books = [];
       }
-      this.setState({ books })
+      this.setState({ books });
+    })
+    .catch((err) => {console.log("error")});
+  };
+
+
   
-  })
-
-
-  }
 
   render() {
     return (
